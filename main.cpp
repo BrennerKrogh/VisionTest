@@ -1,16 +1,13 @@
+#include <opencv2/opencv.hpp>
+// path: D:\libs\opencv\sources\include
 #include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
+using namespace cv;
 int main()
 {
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+    std::string image_path = "Bird.avif";
+    Mat img = imread(image_path, IMREAD_COLOR);
 
-    for (const string& word : msg)
-    {
-        cout << word << " ";
-    }
-    cout << endl;
+    imshow("Display window", img);
+    int k = waitKey(0); // Wait for a keystroke in the window
+    return 0;
 }
